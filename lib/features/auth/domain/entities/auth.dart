@@ -1,7 +1,7 @@
 // import 'package:equatable/equatable.dart';
 
-// class Splash extends Equatable {
-//   const Splash();
+// class Auth extends Equatable {
+//   const Auth();
 
 //   @override
 //   List<Object?> get props => [];

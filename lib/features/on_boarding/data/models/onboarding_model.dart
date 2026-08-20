@@ -1,23 +1,55 @@
-// import 'package:json_annotation/json_annotation.dart';
-// import '../../domain/entities/onboarding.dart';
+import 'package:flutter/material.dart';
+import 'package:fruits_e_commerce/core/utils/app_colors.dart';
+import 'package:fruits_e_commerce/core/utils/app_images.dart';
+import 'package:fruits_e_commerce/core/utils/app_text_styles.dart';
 
-// part '../../../on_boarding/data/models/on_boarding_model.g.dart';
+class OnBoardingPageModel {
+  final String image;
+  final String backgroundImage; // الصورة الخلفية إن وجدت
+  final Widget title;
+  final String subtitle;
 
-// @JsonSerializable()
-// class OnboardingModel {
-//   const OnboardingModel({
-//     this.id,
-//   });
+  OnBoardingPageModel({
+    required this.image,
+    required this.backgroundImage,
+    required this.title,
+    required this.subtitle,
+  });
+}
 
-//   final String? id;
+final List<OnBoardingPageModel> onBoardingPages = [
+  // الصفحة الأولى
+  OnBoardingPageModel(
+    image: Assets.imagesFruits,
+    backgroundImage: Assets.imagesPage1Background,
+    title: const Text.rich(
+      TextSpan(
+        style: AppTextStyles.bold23,
+        children: [
+          TextSpan(text: 'مرحبًا بك في '),
 
-//   factory OnboardingModel.fromJson(Map<String, dynamic> json) => 
-//       _$OnboardingModelFromJson(json);
-  
-//   Map<String, dynamic> toJson() => _$OnboardingModelToJson(this);
+          TextSpan(
+            text: 'Fruit',
+            style: TextStyle(color: AppColors.primaryColor),
+          ),
+          TextSpan(
+            text: 'HUB',
+            style: TextStyle(color: AppColors.secondaryColor),
+          ),
+        ],
+      ),
+    ),
 
-//   Onboarding toDomain() {
-//     // TODO: Implement domain model conversion
-//     throw UnimplementedError();
-//   }
-// }
+    subtitle:
+        'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
+  ),
+
+  // الصفحة الثانية
+  OnBoardingPageModel(
+    image: Assets.imagesPineapple,
+    backgroundImage: Assets.imagesPage2Background,
+    title: const Text('ابحث وتسوق', style: AppTextStyles.bold23),
+    subtitle:
+        'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية.',
+  ),
+];

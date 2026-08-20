@@ -1,3 +1,3 @@
-abstract class SplashRepository {
+abstract class AuthRepository {
   // TODO: Add repository methods
 }
