@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruits_e_commerce/core/utils/app_text_styles.dart';
 
-class SocialLoginButton extends StatelessWidget {
-  const SocialLoginButton({
+class SocialSigninButton extends StatelessWidget {
+  const SocialSigninButton({
     super.key,
     required this.title,
     required this.image,

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "932300914263",
+    "project_id": "fruits-app-omar",
+    "storage_bucket": "fruits-app-omar.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932300914263:android:9e26c49d4152401f5eed12",
+        "android_client_info": {
+          "package_name": "com.example.fruits_e_commerce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXKd2tkQAxMbAvHZVwMgNuG7A_DANaXCs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

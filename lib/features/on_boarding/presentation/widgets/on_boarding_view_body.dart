@@ -3,7 +3,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:fruits_e_commerce/constans.dart';
 import 'package:fruits_e_commerce/core/services/shared_preferences_singleton.dart';
 import 'package:fruits_e_commerce/core/utils/app_colors.dart';
-import 'package:fruits_e_commerce/features/auth/presentation/views/login_view.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/views/signin_view.dart';
 import 'package:fruits_e_commerce/features/on_boarding/data/models/onboarding_model.dart';
 import 'package:fruits_e_commerce/features/on_boarding/presentation/widgets/on_boarding_page_view.dart';
 
@@ -92,7 +92,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                   Prefs.setBool(kIsOnBoardingViewSeen, true);
                   Navigator.of(
                     context,
-                  ).pushReplacementNamed(LoginView.routeName);
+                  ).pushReplacementNamed(SigninView.routeName);
                 },
                 child: const Text(
                   'ابدأ الان',

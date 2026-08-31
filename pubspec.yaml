@@ -28,14 +28,23 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  flutter_localizations:
-    sdk: flutter
   cupertino_icons: ^1.0.8
+  dartz: ^0.10.1
   dots_indicator: ^4.0.1
-  shared_preferences: ^2.5.5
+  firebase_auth: ^6.6.0
+  firebase_core: ^4.14.0
+  modal_progress_hud_nsn: ^0.5.1
+  google_sign_in: ^6.2.1
+
+  cloud_firestore: ^6.8.0
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.1.1
+  flutter_localizations:
+    sdk: flutter
   flutter_svg: ^2.3.0
+  get_it: ^9.2.1
+  shared_preferences: ^2.5.5
 
 dev_dependencies:
   flutter_lints: ^6.0.0
@@ -70,12 +79,11 @@ flutter:
       fonts:
         - asset: assets/fonts/Cairo-Regular.ttf
         - asset: assets/fonts/Cairo-Medium.ttf
-          weight : 500
+          weight: 500
         - asset: assets/fonts/Cairo-SemiBold.ttf
           weight: 600
         - asset: assets/fonts/Cairo-Bold.ttf
           weight: 700
-   
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_e_commerce/core/helper_functions/build_error_bar.dart';
 import 'package:fruits_e_commerce/core/widgets/custom_button.dart';
 import 'package:fruits_e_commerce/core/widgets/custom_text_form_field.dart';
-import 'package:fruits_e_commerce/features/auth/presentation/views/widgets_signup/have_an_account_widget.dart';
-import 'package:fruits_e_commerce/features/auth/presentation/views/widgets_signup/terms_and_conditions_widget.dart';
-import 'package:fruits_e_commerce/features/auth/presentation/widgets/password_field.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/viewmodels/signup_cubit/signup_cubit.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/widgets_signup/have_an_account_widget.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/widgets_signup/terms_and_conditions_widget.dart';
+import 'package:fruits_e_commerce/core/widgets/password_field.dart';
 
 class SignupViewBody extends StatefulWidget {
   const SignupViewBody({super.key});
@@ -55,12 +58,18 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     if (isTermsAccepted) {
-                      // execute sign up logic / trigger Cubit
+                      // استدعاء الكيوبت وتمرير البيانات
+                      context
+                          .read<SignupCubit>()
+                          .createUserWithEmailAndPassword(
+                            name: userName,
+                            email: email,
+                            password: password,
+                          );
                     } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('يجب الموافقة على الشروط والأحكام'),
-                        ),
+                      buildErrorBar(
+                        context,
+                        'يجب الموافقة على الشروط والأحكام',
                       );
                     }
                   } else {

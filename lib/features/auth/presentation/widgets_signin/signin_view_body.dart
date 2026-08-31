@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_e_commerce/core/helper_functions/build_error_bar.dart';
 import 'package:fruits_e_commerce/core/utils/app_colors.dart';
 import 'package:fruits_e_commerce/core/utils/app_images.dart';
 import 'package:fruits_e_commerce/core/utils/app_text_styles.dart';
 import 'package:fruits_e_commerce/core/widgets/custom_button.dart';
 import 'package:fruits_e_commerce/core/widgets/custom_text_form_field.dart';
-import 'package:fruits_e_commerce/features/auth/presentation/widgets/dont_have_an_account_widget.dart';
-import 'package:fruits_e_commerce/features/auth/presentation/widgets/or_divider.dart';
-import 'package:fruits_e_commerce/features/auth/presentation/widgets/password_field.dart';
-import 'package:fruits_e_commerce/features/auth/presentation/widgets/social_login_button.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/viewmodels/signin_cubit/signin_cubit.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/widgets_signin/dont_have_an_account_widget.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/widgets_signin/or_divider.dart';
+import 'package:fruits_e_commerce/core/widgets/password_field.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/widgets_signin/social_signin_button.dart';
 
-class LoginViewBody extends StatefulWidget {
-  const LoginViewBody({super.key});
+class SigninViewBody extends StatefulWidget {
+  const SigninViewBody({super.key});
 
   @override
-  State<LoginViewBody> createState() => _LoginViewBodyState();
+  State<SigninViewBody> createState() => _SigninViewBodyState();
 }
 
-class _LoginViewBodyState extends State<LoginViewBody> {
+class _SigninViewBodyState extends State<SigninViewBody> {
   final _formKey = GlobalKey<FormState>();
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
 
@@ -60,6 +63,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
+                    context.read<SigninCubit>().signInWithEmailAndPassword(
+                      email: _email,
+                      password: _password,
+                    );
                   } else {
                     setState(() {
                       _autovalidateMode = AutovalidateMode.always;
@@ -73,20 +80,28 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               const SizedBox(height: 33),
               const OrDivider(),
               const SizedBox(height: 16),
-              SocialLoginButton(
-                onPressed: () {},
+              SocialSigninButton(
+                onPressed: () {
+                  context.read<SigninCubit>().signInWithGoogle();
+                },
                 image: Assets.imagesGoogleIcon,
                 title: 'تسجيل بواسطة جوجل',
               ),
               const SizedBox(height: 16),
-              SocialLoginButton(
-                onPressed: () {},
+              SocialSigninButton(
+                onPressed: () {
+                  buildErrorBar(context, 'خابرني لاحقا ');
+                  //   setState(() {});
+                },
                 image: Assets.imagesAppleIcon,
                 title: 'تسجيل بواسطة أبل',
               ),
               const SizedBox(height: 16),
-              SocialLoginButton(
-                onPressed: () {},
+              SocialSigninButton(
+                onPressed: () {
+                  buildErrorBar(context, 'خابرني لاحقا ');
+                  //  setState(() {});
+                },
                 image: Assets.imagesFacebookIcon,
                 title: 'تسجيل بواسطة فيسبوك',
               ),

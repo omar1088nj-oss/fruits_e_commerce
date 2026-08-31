@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_e_commerce/core/utils/app_colors.dart';
 import 'package:fruits_e_commerce/core/utils/app_text_styles.dart';
-import 'package:fruits_e_commerce/features/auth/presentation/views/widgets_signup/custom_check_box.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/widgets_signup/custom_check_box.dart';
 
 class TermsAndConditionsWidget extends StatefulWidget {
   const TermsAndConditionsWidget({super.key, required this.onChanged});
